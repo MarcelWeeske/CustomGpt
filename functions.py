@@ -13,11 +13,8 @@ def create_assistant(client):
     file = client.files.create(file=open("knowledge.docx", "rb"),
                                purpose='assistants')
 
-    assistant = client.beta.assistants.create(instructions="""
-          The assistant, Smith's Solar Sales Assistant, has been programmed to help junior sales reps with learning company standard operating procedures and selling techniques as a salesperson.
-          A document has been provided with information on Smith's solars sales processes and training info.
-          """,
-                                              model="gpt-4-1106-preview",
+    assistant = client.beta.assistants.create(instructions="""This is Marcels chatbot, which is fed with Marcel Weeskes CV.""",
+                                              model="gpt-3.5-turbo-1106",
                                               tools=[{
                                                   "type": "retrieval"
                                               }],
